@@ -1,0 +1,2 @@
+# SpiceRack
+A Recipe Manager
