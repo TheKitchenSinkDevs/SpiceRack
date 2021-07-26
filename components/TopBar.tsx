@@ -35,7 +35,7 @@ export default function TopBar() {
 							</Link>
 						</NavItem>
 						<NavItem>
-							<Link href="/groceries">
+							<Link href="/grocery">
 								<NavLink>Groceries</NavLink>
 							</Link>
 						</NavItem>

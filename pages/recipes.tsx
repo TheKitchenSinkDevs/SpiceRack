@@ -21,11 +21,11 @@ export default function recipes() {
 	};
 
 	return (
-		<div>
+		<div className={styles.container}>
 			<header>
 				<TopBar />
 			</header>
-			<main>
+			<main className={styles.main}>
 				<Nav tabs>
 					<NavItem>
 						<NavLink
