@@ -8,7 +8,7 @@ import {
 	Divider,
 	ListSubheader
 } from "@material-ui/core";
-
+import styles from "../styles/Groceries.module.css";
 import groceries from "./sample/groceries";
 
 interface GroceryItem {
@@ -29,9 +29,13 @@ interface GroceryCategories {
 }
 
 export default function GroceryList(props: Props) {
+
+	// TODO: Create API Call by category
+	// Sort categories
 	const groceryListByCategory: GroceryCategories = {} as GroceryCategories;
+
 	props.groceries.forEach((item) => {
-		if (!groceryListByCategory[item.category]) {
+		if (!groceryListByCategory[item.category]) { // Add new category to list
 			groceryListByCategory[item.category] = [item];
 		} else {
 			groceryListByCategory[item.category].push(item);
@@ -41,18 +45,15 @@ export default function GroceryList(props: Props) {
 	const groceryList = Object.keys(groceryListByCategory).map((category: string) => {
 		const items = groceryListByCategory[category].map((item: GroceryItem) => {
 			return (
-				<div key={item.name}>
-					<ListItem button dense>
-						<ListItemIcon>
-							<Checkbox
-								edge="start"
-								tabIndex={-1}
-							/>
-						</ListItemIcon>
-						<ListItemText primary={item.name} secondary={item.quantity.count + " " + item.quantity.unit} />
-					</ListItem>
-					<Divider />
-				</div>
+				<ListItem button dense key={item.name} className={styles.item}>
+					<ListItemIcon>
+						<Checkbox
+							edge="start"
+							tabIndex={-1}
+						/>
+					</ListItemIcon>
+					<ListItemText primary={item.name} secondary={item.quantity.count + " " + item.quantity.unit} />
+				</ListItem>
 			);
 		});
 
@@ -60,13 +61,13 @@ export default function GroceryList(props: Props) {
 			<List
 				key={category}
 				subheader={
-					<ListSubheader component="div">
+					<ListSubheader disableSticky className={styles.subheader}>
 						{category}
 					</ListSubheader>
 				}
 			>
 				{items}
-			</List>
+			</List >
 
 
 		);
@@ -74,10 +75,10 @@ export default function GroceryList(props: Props) {
 
 
 	return (
-		<div>
+		<>
 			<List>
 				{groceryList}
 			</List>
-		</div>
+		</>
 	);
 }

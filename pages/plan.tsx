@@ -1,4 +1,5 @@
 import styles from "../styles/Groceries.module.css";
+import Head from "next/head";
 
 import TopBar from "../components/TopBar";
 

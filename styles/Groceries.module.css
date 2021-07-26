@@ -1,24 +1,10 @@
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.item {
+	margin-top: auto
 }
 
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%
-}
-
-.header {
-	position: static;
-	flex: 1;
-	display: flex;
+.subheader {
+	background-color: aliceblue;
+	position: sticky;
+    top: 0;
+    z-Index: 1;
 }

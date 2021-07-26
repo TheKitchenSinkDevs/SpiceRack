@@ -21,7 +21,6 @@ export default function RecipeGrid(props: any) {
 		return (
 			<Col key={item.name} xs="6" >
 				<Card>
-					<CardImg />
 					<CardBody>
 						<CardTitle tag="h5">{item.name}</CardTitle>
 						<CardText>{item.description}</CardText>

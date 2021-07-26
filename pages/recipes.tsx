@@ -1,5 +1,6 @@
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Recipes.module.css";
 import { useState } from "react";
+import Head from "next/head";
 
 import {
 	NavLink,
@@ -22,6 +23,11 @@ export default function recipes() {
 
 	return (
 		<div className={styles.container}>
+			<Head>
+				<title>SpiceRack - My Recipes</title>
+				<meta name="description" content="My Recipes" />
+				<link rel="icon" href="/favicon.ico" /> {/* Salt tall grinder on left, small jaRs on right, one with R? */}
+			</Head>
 			<header>
 				<TopBar />
 			</header>
