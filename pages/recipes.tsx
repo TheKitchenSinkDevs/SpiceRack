@@ -17,7 +17,7 @@ import RecipeCreator from "../components/RecipeCreator";
 
 export default function recipes() {
 	const [activeTab, setActiveTab] = useState("1");
-	const toggle = tab => {
+	const toggle = (tab: string) => {
 		if (activeTab !== tab) setActiveTab(tab);
 	};
 

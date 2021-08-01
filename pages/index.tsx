@@ -3,8 +3,11 @@ import styles from "../styles/Home.module.css";
 
 import TopBar from "../components/TopBar";
 import Footer from "../components/Footer";
+import { useSession } from "next-auth/client";
 
 export default function Home() {
+	const [session, loading] = useSession();
+
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -14,7 +17,7 @@ export default function Home() {
 			</Head>
 			<TopBar />
 			<main className={styles.main}>
-				<h2>Welcome to Spice Rack</h2>
+				<h2>Welcome to Spice Rack {session && "User"}</h2>
 			</main>
 
 			<footer className={styles.footer}>

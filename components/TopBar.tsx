@@ -8,14 +8,29 @@ import {
 	NavItem,
 	NavLink,
 	NavbarText,
-	Container
+	Container,
+	Button
 } from "reactstrap";
 import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/client";
+
 
 export default function TopBar() {
-
+	const [session, loading] = useSession();
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => setIsOpen(!isOpen);
+
+	const accountNav =
+		<NavItem>
+			<Link href="/account">
+				<NavLink>Account</NavLink>
+			</Link>
+			<Button onClick={() => signOut()} > Sign Out</Button>
+		</NavItem>;
+	const login =
+		<NavItem>
+			<Button onClick={() => signIn()} > Login</Button>
+		</NavItem>;
 
 	return (
 		<Navbar expand="md" light>
@@ -41,9 +56,12 @@ export default function TopBar() {
 						</NavItem>
 					</Nav>
 					<Nav className="navbar-right">
-						<NavbarText>
-							<NavLink>Account</NavLink>
-						</NavbarText>
+						{
+							session && accountNav
+						}
+						{
+							!session && login
+						}
 					</Nav>
 
 				</Collapse>

@@ -20,7 +20,7 @@ import React from "react";
 export default function RecipeCreator() {
 
 	const [servings, setServings] = useState("");
-	const checkFormat = (e) => {
+	const checkFormat = (e: any) => {
 		switch (e.target.id) {
 			case "servings":
 				setServings(e.target.value);
@@ -61,7 +61,7 @@ export default function RecipeCreator() {
 					type="text"
 					name="servings"
 					id="servings"
-					invalid={isNaN(servings)}
+					invalid={isNaN(parseInt(servings))}
 					value={servings}
 					onChange={checkFormat}
 				/>
